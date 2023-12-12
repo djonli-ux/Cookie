@@ -9,5 +9,4 @@ if(isset($_COOKIE['backgroundColor'])) {
     $pass = $_COOKIE['pass'];
     dump("\nBackground color: $val\nEmail: $email\nPassword:$pass\n");
 }
-else
-    echo 'You have not chose background color';
+

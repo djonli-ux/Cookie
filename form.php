@@ -2,19 +2,19 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['backgroundColor']) && isset($_POST['generateLink'])
         && isset($_POST['email']) && isset($_POST['pass'])) {
+        $expiration = time() + (3600 * 24) * 7;
         $val = $_POST['backgroundColor'];
         $email = $_POST['email'];
         $pass = $_POST['pass'];
 
-        setcookie('backgroundColor', $val, (time() + (3600 * 24) * 7));
-        setcookie('email', $email, (time() + (3600 * 24) * 7));
-        setcookie('pass', $pass, (time() + (3600 * 24) * 7));
+        setcookie('backgroundColor', $val, $expiration);
+        setcookie('email', $email, $expiration);
+        setcookie('pass', $pass, $expiration);
 
-        echo '<a href="view.php">View page</a>';
+        header('Location: view.php');
     }
 }
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -44,7 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="ColorInput" class="form-label">Choose theme color</label>
                 <input type="color" name="backgroundColor" class="form-control form-control-color" id="ColorInput" value="#563d7c" title="Choose your color">
             </div>
-            <button type="submit" name="generateLink" class="btn btn-primary">Submit</button>
+            <div class="mb-3 mx-auto p-2">
+                <button type="submit" name="generateLink" class="btn btn-primary">Submit</button>
+
+            </div>
         </form>
     </div>
 <script src="js/bootstrap.bundle.min.js"></script>
