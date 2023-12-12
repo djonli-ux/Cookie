@@ -1,3 +1,12 @@
+<?php
+    require_once 'tools/dd.php';
+
+    $val = '123';
+    setcookie('backColor', $val, (time() + (3600 * 24) * 7));
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,8 +32,8 @@
                 <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
-                <label for="exampleColorInput" class="form-label">Choose theme color</label>
-                <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c" title="Choose your color">
+                <label for="ColorInput" class="form-label">Choose theme color</label>
+                <input type="color" name="backgroundColor" class="form-control form-control-color" id="ColorInput" value="#563d7c" title="Choose your color">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
